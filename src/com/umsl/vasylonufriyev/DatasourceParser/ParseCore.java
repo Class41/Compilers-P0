@@ -1,4 +1,4 @@
-package com.umsl.vasylonufriyev.cmdparser;
+package com.umsl.vasylonufriyev.DatasourceParser;
 
 import java.io.File;
 import java.io.FileInputStream;

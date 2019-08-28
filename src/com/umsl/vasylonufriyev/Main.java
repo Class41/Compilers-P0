@@ -1,7 +1,6 @@
 package com.umsl.vasylonufriyev;
 
-import com.umsl.vasylonufriyev.cmdparser.ParseCMD;
-import com.umsl.vasylonufriyev.cmdparser.ParseClassifier;
+import com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier;
 
 public class Main {
 

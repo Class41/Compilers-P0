@@ -1,4 +1,4 @@
-package com.umsl.vasylonufriyev.cmdparser;
+package com.umsl.vasylonufriyev.DatasourceParser;
 
 public class ParseCMD {
     private ParseCore parser;
