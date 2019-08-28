@@ -1,8 +1,11 @@
 package com.umsl.vasylonufriyev;
 
+import com.umsl.vasylonufriyev.cmdparser.ParseCMD;
+import com.umsl.vasylonufriyev.cmdparser.ParseClassifier;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        String[] parsedData = ParseClassifier.Classify(args);
     }
 }
