@@ -1,6 +1,10 @@
 package com.umsl.vasylonufriyev.DataStructures;
 //Binary tree code copied from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class BinaryTree {
     Node root;
 
@@ -8,12 +12,12 @@ public class BinaryTree {
         root = null;
     }
 
-    void printPostorder(Node node, int depth) {
+    void printPostorder(Node node, int depth, FileOutputStream fs) {
         if (node == null)
             return;
 
-        printPostorder(node.left, depth + 1);
-        printPostorder(node.right, depth + 1);
+        printPostorder(node.left, depth + 1, fs);
+        printPostorder(node.right, depth + 1, fs);
         for (int i = 0; i < (depth * 2); i++)
             System.out.print(" ");
         System.out.print(node.key + " ");
@@ -25,11 +29,11 @@ public class BinaryTree {
         System.out.print("\n");
     }
 
-    void printInorder(Node node, int depth) {
+    void printInorder(Node node, int depth, FileOutputStream fs) {
         if (node == null)
             return;
 
-        printInorder(node.left, depth + 1);
+        printInorder(node.left, depth + 1, fs);
         for (int i = 0; i < (depth * 2); i++)
             System.out.print(" ");
         System.out.print(node.key + " ");
@@ -39,10 +43,10 @@ public class BinaryTree {
         }
 
         System.out.print("\n");
-        printInorder(node.right, depth + 1);
+        printInorder(node.right, depth + 1, fs);
     }
 
-    void printPreorder(Node node, int depth) {
+    void printPreorder(Node node, int depth, FileOutputStream fs) {
         if (node == null)
             return;
 
@@ -55,20 +59,47 @@ public class BinaryTree {
         }
 
         System.out.print("\n");
-        printPreorder(node.left, depth + 1);
-        printPreorder(node.right, depth + 1);
+        printPreorder(node.left, depth + 1, fs);
+        printPreorder(node.right, depth + 1, fs);
     }
 
     public void printPostorder(String outputBaseString) {
-        printPostorder(root, 0);
+        FileOutputStream fs = null;
+
+        try {
+            fs = new FileOutputStream(new File("./" + outputBaseString + ".postorder"));
+        } catch (FileNotFoundException e) {
+            System.out.println("Failed to open output file stream for a traversal");
+            System.exit(-1);
+        }
+
+        printPostorder(root, 0, fs);
     }
 
     public void printInorder(String outputBaseString) {
-        printInorder(root, 0);
+        FileOutputStream fs = null;
+
+        try {
+            fs = new FileOutputStream(new File("./" + outputBaseString + ".inorder"));
+        } catch (FileNotFoundException e) {
+            System.out.println("Failed to open output file stream for a traversal");
+            System.exit(-1);
+        }
+
+        printInorder(root, 0, fs);
     }
 
     public void printPreorder(String outputBaseString) {
-        printPreorder(root, 0);
+        FileOutputStream fs = null;
+
+        try {
+            fs = new FileOutputStream(new File("./" + outputBaseString + ".preorder"));
+        } catch (FileNotFoundException e) {
+            System.out.println("Failed to open output file stream for a traversal");
+            System.exit(-1);
+        }
+
+        printPreorder(root, 0, fs);
     }
 
     public void insertNode(String s) {
