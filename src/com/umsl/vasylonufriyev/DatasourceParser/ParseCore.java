@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.umsl.vasylonufriyev.DatasourceParser.ParseSourceType;
 
 class ParseCore {
     private String[] parseResult = null;

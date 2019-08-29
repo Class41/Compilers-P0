@@ -36,6 +36,9 @@ class ParseFile {
     }
 
     String[] GetParseResult() {
-        return parser.getResult();
+        if(parser != null)
+            return parser.getResult();
+        else
+            return null;
     }
 }
