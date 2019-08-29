@@ -1,15 +1,15 @@
 package com.umsl.vasylonufriyev.DatasourceParser;
 
-public class ParseCMD {
+class ParseCMD {
     private ParseCore parser;
 
-    protected  ParseCMD() {
+    ParseCMD() {
         System.out.println("Attempting to read data from console input...");
 
         parser = new ParseCore();
     }
 
-    protected String[] GetParseResult() {
+    String[] GetParseResult() {
         return parser.getResult();
     }
 }

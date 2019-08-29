@@ -2,11 +2,11 @@ package com.umsl.vasylonufriyev.DatasourceParser;
 
 import java.io.File;
 
-public class ParseFile {
-    protected static final String EXTENSION = ".fs19";
+class ParseFile {
+    private static final String EXTENSION = ".fs19";
     private ParseCore parser;
 
-    protected ParseFile(String cmdArg) {
+    ParseFile(String cmdArg) {
         String qualifiedFileName = cmdArg;
         System.out.println("Filename detected. Attempt to read from file.");
 
@@ -35,7 +35,7 @@ public class ParseFile {
         parser = new ParseCore(qualifiedFileName);
     }
 
-    protected String[] GetParseResult() {
+    String[] GetParseResult() {
         return parser.getResult();
     }
 }

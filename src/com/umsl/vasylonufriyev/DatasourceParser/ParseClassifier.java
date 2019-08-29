@@ -11,7 +11,7 @@ public class ParseClassifier {
                     dataSet = cmdInputParser.GetParseResult();
                     break;
                 case 1:
-                    ParseFile fileInputParser = new ParseFile(cmdArgs[1]);
+                    ParseFile fileInputParser = new ParseFile(cmdArgs[0]);
                     dataSet = fileInputParser.GetParseResult();
                     break;
                 default:

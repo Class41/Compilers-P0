@@ -5,4 +5,5 @@ all:
 	/DatasourceParser/*.java \
 	com/umsl/vasylonufriyev/*.java
 clean:
-	find . -name "*.class" -type f -delete
+	find . -name "*.class" -type f -delete && \
+	rm *.jar
