@@ -75,28 +75,27 @@ public class BinaryTree {
         char key = s.charAt(0);
 
         if (root == null) {
-            root = new Node(key, s);
+            root = new Node<String>(key, s);
         } else {
             Node currentNode = root;
             boolean placed = false;
 
             while (!placed) {
-                if(key == currentNode.key) {
+                if (key == currentNode.key) {
                     currentNode.addValueToValues(s);
                     placed = true;
-                }
-                else if (key > currentNode.key) {
+                } else if (key > currentNode.key) {
                     if (currentNode.right != null) {
                         currentNode = currentNode.right;
                     } else {
-                        currentNode.right = new Node(key, s);
+                        currentNode.right = new Node<String>(key, s);
                         placed = true;
                     }
                 } else if (key < currentNode.key) {
                     if (currentNode.left != null) {
                         currentNode = currentNode.left;
                     } else {
-                        currentNode.left = new Node(key, s);
+                        currentNode.left = new Node<String>(key, s);
                         placed = true;
                     }
                 }
