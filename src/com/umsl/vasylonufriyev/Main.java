@@ -4,6 +4,7 @@ import com.umsl.vasylonufriyev.DatasourceParser.BinaryTreeManager;
 import com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier;
 
 public class Main {
+    public static String OUTPUT_BASE_STRING = "";
 
     public static void main(String[] args) {
         String[] parsedData = ParseClassifier.Classify(args);
@@ -11,11 +12,13 @@ public class Main {
         if (parsedData == null)
             return;
 
+        System.out.println("~~ read " + parsedData.length + " tokens. ~~");
+
         BinaryTreeManager btm = new BinaryTreeManager(parsedData).buildTree();
-        btm.getTree().printPreorder();
 
-        System.out.println("read " + parsedData.length + " tokens.");
-
+        btm.getTree().printPreorder(OUTPUT_BASE_STRING);
+        btm.getTree().printInorder(OUTPUT_BASE_STRING);
+        btm.getTree().printPostorder(OUTPUT_BASE_STRING);
 
     }
 }

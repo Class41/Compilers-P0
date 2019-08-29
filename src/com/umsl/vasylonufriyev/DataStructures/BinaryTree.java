@@ -1,22 +1,6 @@
 package com.umsl.vasylonufriyev.DataStructures;
 //Binary tree code copied from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 
-import java.util.HashSet;
-import java.util.Set;
-
-class Node {
-    Set values;
-    char key;
-    Node left, right;
-
-    public Node(char key, String item) {
-        this.key = key;
-        values = new HashSet();
-        values.add(item);
-        left = right = null;
-    }
-}
-
 public class BinaryTree {
     Node root;
 
@@ -31,11 +15,11 @@ public class BinaryTree {
         printPostorder(node.left, depth + 1);
         printPostorder(node.right, depth + 1);
         for (int i = 0; i < (depth * 2); i++)
-            System.out.print("\t");
+            System.out.print(" ");
         System.out.print(node.key + " ");
 
         for (Object s : node.values) {
-            System.out.print((String) s);
+            System.out.print((String) s + " ");
         }
 
         System.out.print("\n");
@@ -47,11 +31,11 @@ public class BinaryTree {
 
         printInorder(node.left, depth + 1);
         for (int i = 0; i < (depth * 2); i++)
-            System.out.print("\t");
+            System.out.print(" ");
         System.out.print(node.key + " ");
 
         for (Object s : node.values) {
-            System.out.print((String) s);
+            System.out.print((String) s + " ");
         }
 
         System.out.print("\n");
@@ -63,11 +47,11 @@ public class BinaryTree {
             return;
 
         for (int i = 0; i < (depth * 2); i++)
-            System.out.print("\t");
+            System.out.print(" ");
         System.out.print(node.key + " ");
 
         for (Object s : node.values) {
-            System.out.print((String) s);
+            System.out.print((String) s + " ");
         }
 
         System.out.print("\n");
@@ -75,15 +59,15 @@ public class BinaryTree {
         printPreorder(node.right, depth + 1);
     }
 
-    public void printPostorder() {
+    public void printPostorder(String outputBaseString) {
         printPostorder(root, 0);
     }
 
-    public void printInorder() {
+    public void printInorder(String outputBaseString) {
         printInorder(root, 0);
     }
 
-    public void printPreorder() {
+    public void printPreorder(String outputBaseString) {
         printPreorder(root, 0);
     }
 
@@ -97,7 +81,11 @@ public class BinaryTree {
             boolean placed = false;
 
             while (!placed) {
-                if (key > currentNode.key) {
+                if(key == currentNode.key) {
+                    currentNode.addValueToValues(s);
+                    placed = true;
+                }
+                else if (key > currentNode.key) {
                     if (currentNode.right != null) {
                         currentNode = currentNode.right;
                     } else {
