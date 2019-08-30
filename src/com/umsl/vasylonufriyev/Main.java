@@ -1,13 +1,13 @@
 package com.umsl.vasylonufriyev;
 
 import com.umsl.vasylonufriyev.DataStructures.Tree;
-import com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier;
+import static com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier.Classify;
 
 public class Main {
     public static String OUTPUT_BASE_STRING = "";
 
     public static void main(String[] args) {
-        String[] parsedData = ParseClassifier.Classify(args);
+        String[] parsedData = Classify(args);
 
         if (parsedData == null)
             return;
