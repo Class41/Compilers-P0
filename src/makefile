@@ -8,3 +8,5 @@ all:
 clean:
 	find . -name "*.class" -type f -delete && \
 	rm *.jar
+clean-output:
+	rm *.postorder *.preorder *.inorder

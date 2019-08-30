@@ -3,8 +3,8 @@ package com.umsl.vasylonufriyev.DatasourceParser;
 import com.umsl.vasylonufriyev.DataStructures.BinaryTree;
 
 public class BinaryTreeManager {
-    BinaryTree tree;
-    String[] dataSet;
+    private BinaryTree tree;
+    private String[] dataSet;
 
     public BinaryTreeManager(String[] dataSet) {
         this.tree = new BinaryTree();
