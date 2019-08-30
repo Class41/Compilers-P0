@@ -3,19 +3,19 @@ package com.umsl.vasylonufriyev.DataStructures;
 
 import java.io.*;
 
-public class BinaryTree {
+public class Tree {
     private Node root;
 
-    public BinaryTree() {
+    public Tree() {
         root = null;
     }
 
-    private void printPostOrder(Node node, int depth, FileWriter fs) throws IOException {
+    private void printPostorder(Node node, int depth, FileWriter fs) throws IOException {
         if (node == null)
             return;
 
-        printPostOrder(node.left, depth + 1, fs);
-        printPostOrder(node.right, depth + 1, fs);
+        printPostorder(node.left, depth + 1, fs);
+        printPostorder(node.right, depth + 1, fs);
         for (int i = 0; i < (depth * 2); i++)
             fs.write(" ");
 
@@ -65,11 +65,11 @@ public class BinaryTree {
 
     }
 
-    public void printPostOrder(String outputBaseString) {
+    public void printPostorder(String outputBaseString) {
 
         try {
             FileWriter fs = new FileWriter(new File("./" + outputBaseString + ".postorder"));
-            printPostOrder(root, 0, fs);
+            printPostorder(root, 0, fs);
             fs.close();
         } catch (IOException e) {
             System.out.println("Failed to open output file stream for a traversal");
@@ -101,6 +101,13 @@ public class BinaryTree {
         }
     }
 
+    public Tree buildTree(String[] dataSet) {
+        for (String s : dataSet)
+            insertNode(s);
+
+        return this;
+    }
+
     public void insertNode(String s) {
         char key = s.charAt(0);
 
@@ -121,7 +128,7 @@ public class BinaryTree {
                         currentNode.right = new Node<String>(key, s);
                         placed = true;
                     }
-                } else if (key < currentNode.key) {
+                } else {
                     if (currentNode.left != null) {
                         currentNode = currentNode.left;
                     } else {

@@ -1,6 +1,6 @@
 package com.umsl.vasylonufriyev;
 
-import com.umsl.vasylonufriyev.DataStructures.BinaryTreeManager;
+import com.umsl.vasylonufriyev.DataStructures.Tree;
 import com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier;
 
 public class Main {
@@ -14,11 +14,10 @@ public class Main {
 
         System.out.println("~~ read " + parsedData.length + " tokens. ~~");
 
-        BinaryTreeManager btm = new BinaryTreeManager(parsedData).buildTree();
+        Tree binTree = new Tree().buildTree(parsedData);
 
-        btm.getTree().printPreorder(OUTPUT_BASE_STRING);
-        btm.getTree().printInorder(OUTPUT_BASE_STRING);
-        btm.getTree().printPostOrder(OUTPUT_BASE_STRING);
-
+        binTree.printPreorder(OUTPUT_BASE_STRING);
+        binTree.printInorder(OUTPUT_BASE_STRING);
+        binTree.printPostorder(OUTPUT_BASE_STRING);
     }
 }
