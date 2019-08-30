@@ -4,20 +4,21 @@ package com.umsl.vasylonufriyev.DataStructures;
 import java.io.*;
 
 public class BinaryTree {
-    Node root;
+    private Node root;
 
     public BinaryTree() {
         root = null;
     }
 
-    void printPostorder(Node node, int depth, FileWriter fs) throws IOException {
+    private void printPostOrder(Node node, int depth, FileWriter fs) throws IOException {
         if (node == null)
             return;
 
-        printPostorder(node.left, depth + 1, fs);
-        printPostorder(node.right, depth + 1, fs);
+        printPostOrder(node.left, depth + 1, fs);
+        printPostOrder(node.right, depth + 1, fs);
         for (int i = 0; i < (depth * 2); i++)
             fs.write(" ");
+
         fs.write(node.key + " ");
 
         for (Object s : node.values) {
@@ -27,13 +28,14 @@ public class BinaryTree {
         fs.write("\n");
     }
 
-    void printInorder(Node node, int depth, FileWriter fs) throws IOException {
+    private void printInorder(Node node, int depth, FileWriter fs) throws IOException {
         if (node == null)
             return;
 
         printInorder(node.left, depth + 1, fs);
         for (int i = 0; i < (depth * 2); i++)
             fs.write(" ");
+
         fs.write(node.key + " ");
 
         for (Object s : node.values) {
@@ -44,12 +46,13 @@ public class BinaryTree {
         printInorder(node.right, depth + 1, fs);
     }
 
-    void printPreorder(Node node, int depth, FileWriter fs) throws IOException {
+    private void printPreorder(Node node, int depth, FileWriter fs) throws IOException {
         if (node == null)
             return;
 
         for (int i = 0; i < (depth * 2); i++)
             fs.write(" ");
+
         fs.write(node.key + " ");
 
         for (Object s : node.values) {
@@ -62,16 +65,12 @@ public class BinaryTree {
 
     }
 
-    public void printPostorder(String outputBaseString) {
-        FileWriter fs = null;
+    public void printPostOrder(String outputBaseString) {
 
         try {
-            fs = new FileWriter(new File("./" + outputBaseString + ".postorder"));
-            printPostorder(root, 0, fs);
+            FileWriter fs = new FileWriter(new File("./" + outputBaseString + ".postorder"));
+            printPostOrder(root, 0, fs);
             fs.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Failed to open output file stream for a traversal");
-            System.exit(-1);
         } catch (IOException e) {
             System.out.println("Failed to open output file stream for a traversal");
             System.exit(-1);
@@ -79,15 +78,11 @@ public class BinaryTree {
     }
 
     public void printInorder(String outputBaseString) {
-        FileWriter fs = null;
 
         try {
-            fs = new FileWriter(new File("./" + outputBaseString + ".inorder"));
+            FileWriter fs = new FileWriter(new File("./" + outputBaseString + ".inorder"));
             printInorder(root, 0, fs);
             fs.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Failed to open output file stream for a traversal");
-            System.exit(-1);
         } catch (IOException e) {
             System.out.println("Failed to open output file stream for a traversal");
             System.exit(-1);
@@ -95,15 +90,11 @@ public class BinaryTree {
     }
 
     public void printPreorder(String outputBaseString) {
-        FileWriter fs = null;
 
         try {
-            fs = new FileWriter(new File("./" + outputBaseString + ".preorder"));
+            FileWriter fs = new FileWriter(new File("./" + outputBaseString + ".preorder"));
             printPreorder(root, 0, fs);
             fs.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Failed to open output file stream for a traversal");
-            System.exit(-1);
         } catch (IOException e) {
             System.out.println("Failed to open output file stream for a traversal");
             System.exit(-1);

@@ -10,8 +10,8 @@ import com.umsl.vasylonufriyev.DatasourceParser.ParseSourceType;
 class ParseCore {
     private String[] parseResult = null;
 
-    ParseSourceType inType;
-    String fileString;
+    private ParseSourceType inType;
+    private String fileString;
 
     ParseCore() {
         inType = ParseSourceType.CMDINPUT;
@@ -39,6 +39,7 @@ class ParseCore {
                     finStream = new FileInputStream(finRef);
                 } catch (Exception e) {
                     System.out.println("Failed to open input stream.");
+                    System.exit(-1);
                 }
 
                 dataScanner = new Scanner(finStream);

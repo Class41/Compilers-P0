@@ -1,6 +1,6 @@
 package com.umsl.vasylonufriyev;
 
-import com.umsl.vasylonufriyev.DatasourceParser.BinaryTreeManager;
+import com.umsl.vasylonufriyev.DataStructures.BinaryTreeManager;
 import com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier;
 
 public class Main {
@@ -18,7 +18,7 @@ public class Main {
 
         btm.getTree().printPreorder(OUTPUT_BASE_STRING);
         btm.getTree().printInorder(OUTPUT_BASE_STRING);
-        btm.getTree().printPostorder(OUTPUT_BASE_STRING);
+        btm.getTree().printPostOrder(OUTPUT_BASE_STRING);
 
     }
 }

@@ -1,6 +1,4 @@
-package com.umsl.vasylonufriyev.DatasourceParser;
-
-import com.umsl.vasylonufriyev.DataStructures.BinaryTree;
+package com.umsl.vasylonufriyev.DataStructures;
 
 public class BinaryTreeManager {
     private BinaryTree tree;
@@ -12,9 +10,8 @@ public class BinaryTreeManager {
     }
 
     public BinaryTreeManager buildTree() {
-        for (String s : dataSet) {
+        for (String s : dataSet)
             tree.insertNode(s);
-        }
 
         return this;
     }
