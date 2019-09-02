@@ -1,6 +1,7 @@
 package com.umsl.vasylonufriyev;
 
 import com.umsl.vasylonufriyev.DataStructures.Tree;
+
 import static com.umsl.vasylonufriyev.DatasourceParser.ParseClassifier.Classify;
 
 public class Main {
@@ -9,8 +10,12 @@ public class Main {
     public static void main(String[] args) {
         String[] parsedData = Classify(args);
 
-        if (parsedData == null)
+        if (parsedData == null) {
             return;
+        } else if (parsedData.length == 0) {
+            System.out.println("Invalid input length");
+            return;
+        }
 
         System.out.println("~~ read " + parsedData.length + " tokens. ~~");
 
