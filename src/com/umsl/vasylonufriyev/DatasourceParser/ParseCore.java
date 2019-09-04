@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import com.umsl.vasylonufriyev.DatasourceParser.ParseSourceType;
 
 class ParseCore {
     private String[] parseResult = null;
@@ -60,7 +59,7 @@ class ParseCore {
 
         while (dataScanner.useDelimiter(" |\\n").hasNext()) {
             String readData = dataScanner.next();
-            if(readData.length() > 0)
+            if (readData.length() > 0)
                 data.add(readData);
         }
 

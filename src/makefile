@@ -16,8 +16,7 @@ jarbuildpath = $(basepath)$(main)$(buildext) $(basepath)$(datasourceparserpath)$
 
 all:
 	$(compiler) $(buildpath) && \
-    $(jarbuilder) $(buildpath)
-
+    $(jarbuilder) $(jarbuildpath)
 clean:
 	find . -name "*.class" -type f -delete && \
 	rm *.jar
