@@ -58,8 +58,10 @@ class ParseCore {
     private void ReadInData(Scanner dataScanner) {
         List<String> data = new ArrayList<String>();
 
-        while (dataScanner.useDelimiter(" ").hasNext()) {
-            data.add(dataScanner.next());
+        while (dataScanner.useDelimiter(" |\\n").hasNext()) {
+            String readData = dataScanner.next();
+            if(readData.length() > 0)
+                data.add(readData);
         }
 
         parseResult = new String[data.size()];
