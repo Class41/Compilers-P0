@@ -7,33 +7,34 @@ import java.util.List;
 import java.util.Scanner;
 
 class ParseCore {
-    private String[] parseResult = null;
+    private String[] parseResult = null; //declare/ temp initialize token array
 
-    private ParseSourceType inType;
+    private ParseSourceType inType; //Stores determined type of input, file or commandline stdin input
     private String fileString;
 
-    ParseCore() {
+    ParseCore() { //no name passed, assume cmd stdin input
         inType = ParseSourceType.CMDINPUT;
-        DoParse();
+        doParse();
     }
 
-    ParseCore(String qualifiedFileName) {
+    ParseCore(String qualifiedFileName) { //got name, proceed with trying to read file
         inType = ParseSourceType.FILEINPUT;
         fileString = qualifiedFileName;
-        DoParse();
+        doParse();
     }
 
-    private void DoParse() {
-        File finRef = null;
-        FileInputStream finStream = null;
-        Scanner dataScanner = null;
+    private void doParse() {
+        File finRef = null; //file input reference
+        FileInputStream finStream = null; //file stream for input
+        Scanner dataScanner = null; //scanner
 
-        switch (inType) {
-            case CMDINPUT:
-                dataScanner = new Scanner(System.in);
+        switch (inType) { //depending on input type enum, perform different actions
+            case CMDINPUT: //if cmd stdin input
+                dataScanner = new Scanner(System.in); //stdin readin
                 break;
-            case FILEINPUT:
+            case FILEINPUT: //if file input
                 finRef = new File("./" + fileString);
+
                 try {
                     finStream = new FileInputStream(finRef);
                 } catch (Exception e) {
@@ -41,31 +42,32 @@ class ParseCore {
                     System.exit(-1);
                 }
 
-                dataScanner = new Scanner(finStream);
+                dataScanner = new Scanner(finStream); //put in the file stream into the scanner
                 break;
         }
 
-        ReadInData(dataScanner);
+        readInData(dataScanner);
+
         try {
-            if (finStream != null)
+            if (finStream != null) //make sure we aren't leaving behind a mem leak
                 finStream.close();
         } catch (Exception e) {
             System.out.println("Failed to close input file stream...");
         }
     }
 
-    private void ReadInData(Scanner dataScanner) {
+    private void readInData(Scanner dataScanner) {
         List<String> data = new ArrayList<String>();
 
-        while (dataScanner.useDelimiter(" |\\n").hasNext()) {
+        while (dataScanner.useDelimiter(" |\\n|\\t").hasNext()) { //use delimiters \n \t and space while data exists
             String readData = dataScanner.next();
-            if (readData.length() > 0)
+            if (readData.length() > 0) //check length for case where just spaces/extra spaces
                 data.add(readData);
         }
 
         parseResult = new String[data.size()];
 
-        System.arraycopy(data.toArray(), 0, parseResult, 0, data.size());
+        System.arraycopy(data.toArray(), 0, parseResult, 0, data.size()); //copy over the arraylist to array
 
     }
 

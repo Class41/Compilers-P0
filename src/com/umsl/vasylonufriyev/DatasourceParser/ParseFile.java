@@ -10,20 +10,20 @@ public class ParseFile {
         String qualifiedFileName = cmdArg;
         System.out.println("Filename detected. Attempt to read from file.");
 
-        if (cmdArg.endsWith(".fs19")) {
+        if (cmdArg.endsWith(".fs19")) { //check if extension exists
             System.out.println("Extension detected. Proceeding normally.");
-        } else {
+        } else { //if not, append it
             qualifiedFileName += EXTENSION;
         }
 
         File inFile = new File("./" + qualifiedFileName);
 
         try {
-            if (!inFile.exists()) {
+            if (!inFile.exists()) { //check if file exists
                 System.out.println("File " + inFile.getCanonicalPath() + " does not exist. Aborting");
                 return;
             }
-            if (!inFile.canRead()) {
+            if (!inFile.canRead()) { //check is file is readable
                 System.out.println("File " + inFile.getCanonicalPath() + " cannot be read. Aborting");
                 return;
             }
@@ -35,7 +35,7 @@ public class ParseFile {
         parser = new ParseCore(qualifiedFileName);
     }
 
-    public String[] GetParseResult() {
+    public String[] getParseResult() {
         if(parser != null)
             return parser.getResult();
         else

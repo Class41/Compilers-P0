@@ -1,10 +1,12 @@
 package com.umsl.vasylonufriyev.DataStructures;
 //Binary tree code copied from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Tree {
-    private Node root;
+    private Node root; //reference to root node
 
     public Tree() {
         root = null;
@@ -108,27 +110,27 @@ public class Tree {
         return this;
     }
 
-    public void insertNode(String s) {
-        char key = s.charAt(0);
+    private void insertNode(String s) {
+        char key = s.charAt(0); //check first character of string, this is our key
 
-        if (root == null) {
+        if (root == null) { //if there is not root, this is now our root
             root = new Node<String>(key, s);
-        } else {
-            Node currentNode = root;
-            boolean placed = false;
+        } else { //otherwise
+            Node currentNode = root; //set the current node visited equal to root
+            boolean placed = false; //keeps track if we have placed the item
 
             while (!placed) {
-                if (key == currentNode.key) {
+                if (key == currentNode.key) { //check if the key matches current node
                     currentNode.addValueToValues(s);
                     placed = true;
-                } else if (key > currentNode.key) {
+                } else if (key > currentNode.key) { //check if current key greater than node key
                     if (currentNode.right != null) {
                         currentNode = currentNode.right;
                     } else {
                         currentNode.right = new Node<String>(key, s);
                         placed = true;
                     }
-                } else {
+                } else { //if key is less than node key
                     if (currentNode.left != null) {
                         currentNode = currentNode.left;
                     } else {

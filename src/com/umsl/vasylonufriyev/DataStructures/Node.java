@@ -2,11 +2,11 @@ package com.umsl.vasylonufriyev.DataStructures;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/* Templated class for a node */
 class Node<T> {
-    Set<T> values;
-    char key;
-    Node left, right;
+    Set<T> values; //set of values to be stored in this node
+    char key; //key of node
+    Node left, right; //references to children nodes
 
     Node(char key, T item) {
         this.key = key;

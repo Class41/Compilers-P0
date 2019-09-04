@@ -9,7 +9,7 @@ public class ParseCMD {
         parser = new ParseCore();
     }
 
-    public String[] GetParseResult() {
+    public String[] getParseResult() {
         return parser.getResult();
     }
 }
