@@ -1,5 +1,13 @@
+/*
+Author: Vasyl Onufriyev
+Binary tree code copied from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+Date: 8.28.2019
+Class: CS4280
+Instructor: Professor Janikow
+Description: Tree Implementation, plus tree insert implementation. Handles binary trees
+*/
+
 package com.umsl.vasylonufriyev.DataStructures;
-//Binary tree code copied from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 
 import java.io.File;
 import java.io.FileWriter;
