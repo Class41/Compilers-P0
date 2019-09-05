@@ -1,3 +1,11 @@
+/*
+Author: Vasyl Onufriyev
+Date: 8.28.2019
+Class: CS4280
+Instructor: Professor Janikow
+Description: Initial point of the program--contains the main function and commandline argument validation/parsing
+*/
+
 package com.umsl.vasylonufriyev;
 
 import com.umsl.vasylonufriyev.DataStructures.Tree;
