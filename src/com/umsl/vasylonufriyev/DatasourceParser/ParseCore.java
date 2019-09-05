@@ -1,3 +1,11 @@
+/*
+Author: Vasyl Onufriyev
+Date: 8.28.2019
+Class: CS4280
+Instructor: Professor Janikow
+Description: Performs file read-in. Different source inputs are facilitated by different constructors.
+*/
+
 package com.umsl.vasylonufriyev.DatasourceParser;
 
 import java.io.File;
