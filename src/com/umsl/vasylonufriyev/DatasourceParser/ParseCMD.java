@@ -1,3 +1,12 @@
+/*
+Author: Vasyl Onufriyev
+Date: 8.28.2019
+Class: CS4280
+Instructor: Professor Janikow
+Description: Performs preparation to parse commandline arguments. 
+Although this is empty, it will be used for future projects for pre-processing. 
+*/
+
 package com.umsl.vasylonufriyev.DatasourceParser;
 
 public class ParseCMD {
