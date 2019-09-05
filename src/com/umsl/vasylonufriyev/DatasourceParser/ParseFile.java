@@ -1,3 +1,10 @@
+/*
+Author: Vasyl Onufriyev
+Date: 8.28.2019
+Class: CS4280
+Instructor: Professor Janikow
+Description: Prepares file arg for processing and checks for file existence and appends extension if nonexistent
+*/
 package com.umsl.vasylonufriyev.DatasourceParser;
 
 import java.io.File;
