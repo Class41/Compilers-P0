@@ -1,10 +1,22 @@
-all:
-	javac com/umsl/vasylonufriyev/DatasourceParser/*.java \
-	com/umsl/vasylonufriyev/*.java && \
-    jar cfm P0.jar ./MANIFEST.MF ./com/umsl/vasylonufriyev/*.class \
-    ./com/umsl/vasylonufriyev/DatasourceParser/*.class \
-    ./com/umsl/vasylonufriyev/DataStructures/*.class
+compiler = javac
+compext = *.java
+basepath = com/umsl/vasylonufriyev/
+main =
+datasourceparserpath = DatasourceParser/
+datastructurespath = DataStructures/
 
+buildpath = $(basepath)$(main)$(compext) $(basepath)$(datasourceparserpath)$(compext) $(basepath)$(datastructurespath)$(compext)
+
+jarname = P0.jar
+manifestpath = ./MANIFEST.MF
+jarbuilder = jar cfm $(jarname) $(manifestpath)
+buildext = *.class
+
+jarbuildpath = $(basepath)$(main)$(buildext) $(basepath)$(datasourceparserpath)$(buildext) $(basepath)$(datastructurespath)$(buildext)
+
+all:
+	$(compiler) $(buildpath) && \
+    $(jarbuilder) $(jarbuildpath)
 clean:
 	find . -name "*.class" -type f -delete && \
 	rm *.jar
